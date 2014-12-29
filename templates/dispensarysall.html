@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+        {% block extrahead %}
+                <title>Dabspensarys</title>
+        {% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+	
+
+	
+		         <div class="row">
+
+        <div class="col-md-12 toppad" >
+	<div class="panel panel-info" style="background-color: rgba(0, 0, 0, 0.9)" >
+            <div class="panel-heading">
+			<center><b>Dabspensarys</b></center>
+            </div>
+
+               <div class="panel-body">
+
+		{% for dispensary in dispensarys %}
+		<div class="row">	
+		<div class="col-md-12" align="left"><a href="/waxs/"><a href="/dispensarys/{{ dispensary.slug }}/"><img src="{{ dispensary.disp_pic.url }}"  width="75" height="75" class="img-circle" />
+			<button type="button" class="btn btn-info btn-con">{{ dispensary }}</button></a>
+		{% endfor %}
+            </div>
+	   </div>	
+	 </div>
+	</div>
+                       
+	<div id="nav_bottom" class-""toppad>
+                <center><p><a href="/waxs/"><button type="button" class="btn btn-primary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DABS&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button></a>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; <a href="/dispensarys/"><button type="button" class="btn btn-primary">DISPENSARYS</button></a></p></center>
+        </div>
+	</div>	
+{% else %}
+<img src="/static/images/ahahah.gif" width='468px'>
+<center><h3><p>Please <a href="/login/">Login</a> to view this page</p></h3></center>
+{% endif %}
+{% endblock %}

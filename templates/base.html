@@ -1,0 +1,118 @@
+<html>
+<head>
+	
+
+	<meta name="description" content="The online source for locating your next dab!">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/dabfinder.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link rel="icon"  type="image/png" href="/static/images/dflogo5.png">
+	<link rel="apple-touch-icon" href="/static/images/dflogo5.png"/>
+	<link rel="stylesheet" type="text/css" href="/static/css/addtohomescreen.css">
+	<script src="/static/js/addtohomescreen.js"></script>
+	<script> addToHomescreen(); </script>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+	{% block extrahead %}
+	{% endblock %}
+	
+</head>
+<body><script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1544590149131336',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<script> addToHomescreen(); </script>
+
+{% load avatar_tags %}
+<div class="row">
+<div id="pageContainer">
+
+
+    
+
+
+
+	    
+
+        <nav class="navbar navbar-default  col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12" role="navigation" style="background-color: rgba(0, 0, 0, 0.9)">
+
+  <div class="container">
+     
+      <a class="navbar-brand" href="/"><img src="/static/images/dflogo4.png" width="75" height="50" /></a>
+    
+    
+        <font size="4">
+        {% if user.is_authenticated %}
+                 
+            <b><a href="/profile/">Profile</a></b> .   
+           <b> <a href="/logout/">Logout {% avatar user 55 %}</a></b>&nbsp&nbsp&nbsp&nbsp 
+	  {% else %}
+             
+            <b><a href="/login/">Login</a></b> . 
+           <b><a href="/register/">Sign Up</a></b>&nbsp&nbsp&nbsp&nbsp
+
+
+        {% endif %}
+
+        </font>
+    
+  </div><!-- /.container-fluid -->
+ 
+</nav>
+	
+<br /><br /><br /><br />
+
+        
+	{% block content %}
+
+
+	{% endblock %}
+<!-- Social Footer, Colour Matching Icons -->
+<!-- Include Font Awesome Stylesheet in Header -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- // -->
+<div class="container img-responsive">
+         	<center>
+	            <a href="https://twitter.com/DabFinder"><i id="social" class="fa fa-twitter-square fa-3x"></i></a>
+	            <a href="https://www.facebook.com/profile.php?id=100008618432189"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
+	            <a href="mailto:barry5hallsack@gmail.com"><i id="social" class="fa fa-envelope-square fa-3x"></i></a>
+		</center>
+
+</div>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+    <hr>
+</div>
+<div>
+        <center>
+       <a href="http://www.wrapsprint.com"> <img src="/static/images/wraps_banner.gif" class="img-responsive"></a>
+        <center>
+        </div>
+        
+</div>
+</div>
+
+<script src="/media/js/bootstarp.js">
+<script src="/media/js/jquery.js">
+<script src="/media/js/df.js">
+
+
+</body>
+      
+</html>

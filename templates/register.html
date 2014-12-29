@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block extrahead %}
+        <script src="/static/js/jquery.js" type="text/javascript"></script>
+        <script src="/static/js/jquery-ui.js" type="text/javascript"></script>
+        <script>
+        $(function() {
+                $( "#id_birthday" ).datepicker();
+        });
+        </script>
+	 <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css">
+	 <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.theme.css">
+{% endblock %}
+{% block content %}
+<center><h2>Register for The Dab Finder</h2></center>
+<form action="" method="post">
+{% csrf_token %}
+{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}
+<div class="register_div" align="center">
+        {% if form.username.errors %}<p class="error">{{ form.username.errors }}</p>{% endif %}
+        <p><label for="username"{% if form.username.errors %} class="error"{% endif %}>Username:</label></p>
+        <p>{{ form.username }}</p>
+</div>
+<div class="register_div"  align="center">
+        {% if form.email.errors %}<p class="error">{{ form.email.errors }}</p>{% endif %}
+        <p><label for="email"{% if form.email.errors %} class="error"{% endif %}>Email:</label></p>
+        <p>{{ form.email }}</p>
+</div>
+<div class="register_div"  align="center">
+        {% if form.password.errors %}<p class="error">{{ form.password.errors }}</p>{% endif %}
+        <p><label for="password"{% if form.password.errors %} class="error"{% endif %}>Password:</label></p>
+        <p>{{ form.password }}</p>
+</div>
+<div class="register_div"  align="center">
+        {% if form.password1.errors %}<p class="error">{{ form.password1.errors }}</p>{% endif %}
+        <p><label for="password1"{% if form.password1.errors %} class="error"{% endif %}>Verify Password:</label></p>
+        <p>{{ form.password1 }}</p>
+</div>
+<div class="register_div"  align="center">
+        {% if form.birthday.errors %}<p class="error">{{ form.birthday.errors }}</p>{% endif %}
+        <p><label for="birthday"{% if form.birthday.errors %} class="error"{% endif %}>Birthday:</label></p>
+        <p>{{ form.birthday }}</p>
+</div>
+<div class="register_div"  align="center">
+        {% if form.captcha.errors %}<p class="error">{{ form.captcha.errors }}</p>{% endif %}
+        <p><label for="captcha"{% if form.captcha.errors %} class="error"{% endif %}>CAPTCHA:</label></p>
+        <p>{{ form.captcha }}</p>
+</div>
+
+<center><p><input type="submit" alt="register" /></p></center>
+</form>
+{% endblock %}

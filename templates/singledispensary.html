@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+        {% block extrahead %}
+                <title>Dabspensary Profile</title>
+        {% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+	 <div class="row">
+
+        <div class=" col-md-12  toppad" >
+
+
+          <div class="panel panel-info" style="background-color: rgba(0, 0, 0, 0.9)" >
+            <div class="panel-heading">
+              <h3 class="panel-title tweettext">{{ waxs.0.dispensary }}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="DABspensary Pic" src="{{ waxs.0.dispensary.disp_pic.url }}" width="100" height="100" class="img-circle"> </div>
+
+                <!--<div class="col-xs-9 col-sm-9 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>WEBSITE:</dt>
+                    <dd>{{ waxs.0.dispensary.website|urlize }}</dd>
+                    <dt>ADDRESS</dt>
+                    <dd>{{ waxs.0.dispensary.address }} {{ waxs.0.dispensary.city }}</dd>
+                    <dt>EMAIL</dt>
+                       <dd>{{ waxs.0.dispensary.email }}</dd>
+                    <dt>PHONE NUMBER</dt>
+                    <dd>{{ waxs.0.dispensary.phone }}</dd>
+                  </dl>   
+                </div>-->
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information tweettext">
+                    <tbody>
+                      <tr>
+                        <td>WEBSITE:</td>
+                        <td><b>{{ waxs.0.dispensary.website|urlize }}</b></td>
+                      </tr>
+                      <tr>
+                        <td>ADDRESS:</td>
+                        <td><b>{{ waxs.0.dispensary.address }} {{ waxs.0.dispensary.city }}</b></td>
+                      </tr>
+                      <tr>
+                        <td>EMAIL:</td>
+                        <td> <a href="mailto:{{ waxs.0.dispensary.email }}"><b>{{ waxs.0.dispensary.email }}</b></a></td>
+                      </tr>
+
+                         <tr>
+                             <tr>
+                        <td>PHONE #:</td>
+                        <td><b>{{ waxs.0.dispensary.phone }}</b></td>
+                      </tr>
+                        <tr>
+                        <td>INFO:</td>
+                        <td><b>{{ waxs.0.dispensary.description }}</b></td>
+                      </tr>
+
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+
+                </div>
+              </div>
+            
+        
+         <div class="panel-footer tweettext" style="background-color: rgba(0, 0, 0, 0.5)" >
+	        {% load ratings %}
+        <div class="overall_rating">DABspensary Rating: {{ the_overall_rating }}</div>
+  </div>
+ </div>						
+</div>
+		
+			<div class="col-md-12 toppad panel-footer"  style="background-color: rgba(0, 0, 0, 0.9)" >
+			 {%  load easy_maps_tags %}
+		        <!-- Default map with 150x500 dimensions -->
+                         {%  easy_map waxs.0.dispensary.map_addr 460 150 12%}
+		</div>
+	     	
+
+
+
+
+	
+
+
+
+	{% for wax in waxs %}
+
+         <div class="row">
+
+        <div class="col-md-12 toppad" >
+
+
+          <div class="panel panel-info" style="background-color: rgba(0, 0, 0, 0.9)" >
+            <div class="panel-heading tweettext">
+              {{ wax }} from {{ waxs.0.dispensary }}
+            </div>
+     		
+	       <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="left"><a href="/waxs/{{ wax.slug }}/"> <img alt="User Pic" src="{{ wax.wax_pic.url }}" width="75" height="75" class="img-circle"></a><a href="/waxs/{{ wax.slug }}/"> 
+			<button type="button" class="btn btn-success btn-cons">{{ wax }} &nbsp ${{ wax.pricepergram }}/gr</button></a> </div>
+
+                
+
+
+                </div>
+              </div>
+            </div>
+           </div>
+</div>
+ {% endfor %}
+
+
+
+
+
+	<div id="user_rating"></div>
+        <div id="nav_bottom">
+                <center><p><a href="/waxs/"><button type="button" class="btn btn-primary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DABS&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; 
+	<a href="/dispensarys/"><button type="button" class="btn btn-primary">DISPENSARYS</button></a></p></center>
+        </div>
+	</div>	
+{% else %}
+<img src="/static/images/ahahah.gif" width='490px' >
+<center><h3><p>Please <a href="/login/">Login</a> to view this page</p></h3></center>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'Dab Finder Dabmin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Dab Finder Dabministration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

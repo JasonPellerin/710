@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+        {% block extrahead %}
+                <title>Dab Description</title>
+        {% endblock %}
+{% block content  %}
+{% if user.is_authenticated %}
+{% load avatar_tags %}
+	
+ <div class="row">
+
+        <div class=" col-md-12  toppad" >
+
+
+          <div class="panel panel-info" style="background-color: rgba(0, 0, 0, 0.9)" >
+            <div class="panel-heading  tweettext">
+              <h3 class="panel-title">DABSCRIPTION</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="DAB Pic" src="{{ wax.wax_pic.url }}" width="100" height="100" class="img-circle"> </div>
+
+                <!--<div class="col-xs-9 col-sm-9 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DAB NAME:</dt>
+                    <dd>{{ wax }}</dd>
+                    <dt>TYPE:</dt>
+                    <dd>{{ wax.get_type_display }}</dd>
+                    <dt>SOLVENT:</dt>
+                       <dd>{{ wax.get_solvent_display }}</dd>
+                    <dt>PPG:</dt>
+                       <dd>${{ wax.pricepergram }}</dd>
+                    <dt>DABSPENSARY:</dt>
+                    <dd>><a href="/dispensarys/{{ wax.dispensary.slug }}/">{{ wax.dispensary }}</a><</dd>
+		    <dt>HIGH:</dt>
+                       <dd>{{ wax.get_high_display }}</dd>	
+                  </dl>
+                </div>-->
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information tweettext">
+                    <tbody>
+                      <tr>
+                        <td>DAB NAME:</td>
+                        <td><b>{{ wax }}</b></td>
+                      </tr>
+                      <tr>
+                        <td>TYPE:</td>
+                        <td><b>{{ wax.get_type_display }}</b></td>
+                      </tr>
+                      <tr>
+                        <td>SOLVENT:</td>
+                        <td>{{ wax.get_solvent_display }}</b></a></td>
+                      </tr>
+                         <tr>
+                             <tr>
+                        <td>DABSPENSARY:</td>
+                        <td><b><a href="/dispensarys/{{ wax.dispensary.slug }}/">{{ wax.dispensary }}</a></b></td>
+                      </tr>
+                        <tr>
+                        <td>HIGH:</td>
+                        <td><b>{{ wax.get_high_display }}</b></td>
+                      </tr>
+		     <tr>
+                        <td>PPG:</td>
+                        <td><b>${{ wax.pricepergram }}</b></td>
+
+                      </tr>
+                     <tr>
+                        <td>INFO:</td>
+                        <td><b>{{ wax.description }}</b></td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+		<center>
+		       
+            </div>
+              </div>
+
+         <div class="panel-footer" style="background-color: rgba(0, 0, 0, 0.5)" >
+               <img src="{{ wax.wax_pic.url }}" height="" width="" class="img-responsive" />
+		                         {% load avatar_tags %} {% load review_tags %}
+		     <div class="reviews tweettext">
+			<h3>Staff Reviews:</h3>
+			<hr />
+                        {% get_reviews wax as reviews %}
+                        {% for review in reviews %}
+                          <p>
+                        {% avatar review.user 65%}
+                        {% if review.content %}
+                        {{ review.content|truncatewords:'70' }}  - <font size=1> {{ review.user }} </font>
+			<hr />
+                        {% else %}
+                        Reviewed without description.
+                        {% endif %}{% endfor %}
+			</p>
+		    </div>
+	<div id="nav_bottom">
+                <center><p><a href="/waxs/"><button type="button" class="btn btn-primary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DABS&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        </button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="/dispensarys/"><button type="button" class="btn btn-primary">DISPENSARYS</button></a></p></center>
+        </div>
+
+  </div>
+ </div>
+
+
+{% else %}
+<img src="/static/images/ahahah.gif" width='490px'>
+<center><h3><p>Please <a href="/login/">Login</a> to view this page</p></h3></center>
+{% endif %}
+{% endblock %}
+

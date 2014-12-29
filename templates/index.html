@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+        {% block extrahead %}
+		<title>Welcome to The Dab Finder!!!</title>
+        {% endblock %}
+{% block content  %}
+	<div id="home_copy">
+		{{ homepage.homecopy | safe }}
+	<div id="tweets_div" style="background-color: rgba(0, 0, 0, 0.9); font-size: 10; color: #FFFFFF">
+	<p class="tweettime">Newest tweets</p>
+	<ul id="home_tweets">
+                {% for tweet in tweets.tweets|slice:":5" %}
+	
+                <li class="tweettext">{{ tweet.status  }}</li>
+                <li class="tweettime">{{ tweet.date }}</li>
+	  
+              {% endfor %}
+        </ul>
+	</div>
+	{% if user.is_authenticated %}
+	<div id="nav_bottom">
+                <center><p><a href="/waxs/"><button type="button" class="btn btn-primary">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DABS&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        </button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="/dispensarys/"><button type="button" class="btn btn-primary">DISPENSARYS</button></a></p></center>
+	</div>{% else %} {% endif %}
+	<div>
+        
+	
+{% endblock  %}

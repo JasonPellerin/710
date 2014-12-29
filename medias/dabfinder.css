@@ -1,0 +1,10 @@
+body {
+	background-attatchment: fixed;
+	background-color: #000000;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-image: url(home/rufeo/Documents/DF/dab_finder/static/images/bg.jpg);
+	color: #FFFFFF;
+	margin: 0;
+	padding: 0;	
+}
