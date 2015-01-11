@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'thedabfinder.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dfdb',
-        'USER': 'root',
-        'PASSWORD': '!xy09zzz',
+        'NAME': 'XXXXXXXXXXXXXXXXXXXXXXXX',
+        'USER': 'XXXXXXXXXXXXXXXXXXXXXXXX',
+        'PASSWORD': 'XXXXXXXXXXXXXXXXXXXXXXXXXX',
     }
 }
 
