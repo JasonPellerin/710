@@ -17,10 +17,10 @@ def getTweets():
         tweets = []
         try:
                 import twitter
-                api = twitter.Api(consumer_key='i4tHHvpHzEebAYoKTQKs0w0FT',
-                      consumer_secret='z9OXoXa2HvfNagie6gCaGYG5f0kGGALNJtTjUzbJOuzKHga4Lh',
-                      access_token_key='2914106083-7s64XxeEYGcyzPuavwnFSQYzuwhq7qdka1T8hc0',
-                      access_token_secret='QCtDjFBrewvpN1XU5xFKYw9p98Vg3IJ7S2SaO0uw3hWLC')
+                api = twitter.Api(consumer_key='xxxxxxxxxxxxxx',
+                      consumer_secret='xxxxxxxxxxxxxxxxxxxxxxxxxxx',
+                      access_token_key='xxxxxxxxxxxxxxxxxxxxxxxxxx',
+                      access_token_secret='xxxxxxxxxxxxxxxxxxxxxxxxx')
 
                 latest = api.GetUserTimeline('dabfinder')
                 for tweet in latest:
